@@ -14,6 +14,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField, Header("連線中畫面")]private GameObject goConnectView;
     [SerializeField, Header("對戰按鈕")] private Button btnBattle;
     [SerializeField, Header("連線人數")] private Text textCountPlayer;
+    [SerializeField, Header("連線最大人數"), Range(0, 20)] private byte maxCountPlayer = 3;
 
     //讓按鈕跟程式溝通的流程
     // 1.提供公開的方法
@@ -66,7 +67,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         print("<color=red>4. 加入隨機房間失敗</color>");
 
         RoomOptions ro = new RoomOptions(); //新增房間設定物件
-        ro.MaxPlayers = 2;                  //指定房間最大人數
+        ro.MaxPlayers = maxCountPlayer;                  //指定房間最大人數
         PhotonNetwork.CreateRoom("", ro);   //建立房間並給予房間物件
     }
 

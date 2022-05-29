@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using Photon.Pun;
 
 namespace remiel
 {
     /// <summary>
     /// 攻擊系統
     /// </summary>
-    public class SystemAttack : MonoBehaviour
+    public class SystemAttack : MonoBehaviourPun
     {
         [SerializeField] public Button btnFire; 
         [SerializeField, Header("子彈")] private GameObject goBullet;
@@ -21,8 +22,13 @@ namespace remiel
 
         private void Awake()
         {
-            // 發射按鈕.點擊.添加監聽器(開槍方法) 按下發射按鈕執行開槍方法
-            btnFire.onClick.AddListener(Fire);
+            if (photonView.IsMine)
+            {
+                // 發射按鈕.點擊.添加監聽器(開槍方法) 按下發射按鈕執行開槍方法
+                btnFire.onClick.AddListener(Fire);
+            }
+
+           
         }
 
 
@@ -31,7 +37,10 @@ namespace remiel
         /// </summary>
         private void Fire()
         {
-            Instantiate(goBullet, traFire.position, Quaternion.identity);
+            // 站存子彈 = 速度.生成(物件名稱.座標.角度)
+            GameObject tempBullet = PhotonNetwork.Instantiate(goBullet.name, traFire.position, Quaternion.identity);
+            // 站存子彈.取的元件<鋼體>().添加動力(腳色的方向 * 速度)
+            tempBullet.GetComponent<Rigidbody>().AddForce(transform.forward * speedFire);
         }
     }
 }
