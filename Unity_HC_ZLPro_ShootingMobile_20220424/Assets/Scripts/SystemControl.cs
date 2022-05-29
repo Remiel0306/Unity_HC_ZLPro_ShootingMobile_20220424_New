@@ -27,6 +27,7 @@ namespace remiel
         private Transform traDirectionIcon;
         private CinemachineVirtualCamera cvc;
         private SystemAttack systemAttack;
+        private DamageManager damageManager;
 
 
         private void Awake()
@@ -34,6 +35,7 @@ namespace remiel
             rigidBody = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
             systemAttack = GetComponent<SystemAttack>();
+            damageManager = GetComponent<DamageManager>();
 
             if (photonView.IsMine)
             {
@@ -49,6 +51,9 @@ namespace remiel
 
                 cvc = GameObject.Find("CM管理器").GetComponent<CinemachineVirtualCamera>();
                 cvc.Follow = transform;
+
+                damageManager.imgHp = GameObject.Find("圖片血量").GetComponent<Image>();
+                damageManager.textHp = GameObject.Find("文字血量").GetComponent<Text>();
             }
             else 
             {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace remiel
 {
-    public class DamageManager : MonoBehaviour
+    public class DamageManager : MonoBehaviourPun
     {
         [SerializeField, Header("血量"), Range(0, 100)] private float hp = 200;
         [SerializeField, Header("擊中特效")] private GameObject goVFXHit;
@@ -14,11 +14,14 @@ namespace remiel
         private float hpMax;
 
         private string nameBullet = "子彈";
-        public Image imgHp;
+        [HideInInspector] public Image imgHp;
+        [HideInInspector] public Text textHp;
 
         private void Awake()
         {
             hpMax = hp;
+
+            if (photonView.IsMine) textHp.text = hp.ToString();
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -33,6 +36,9 @@ namespace remiel
         {
             hp -= 20;
             imgHp.fillAmount = hp / hpMax;
+
+            hp = Mathf.Clamp(hp, 0, hpMax);
+            textHp.text = hp.ToString();
 
             // 連線.生成(特效.擊中座標.角度)
             PhotonNetwork.Instantiate(goVFXHit.name, posHit, Quaternion.identity);
