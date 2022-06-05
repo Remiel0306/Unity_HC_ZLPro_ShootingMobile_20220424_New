@@ -216,7 +216,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 860793eb3324391468f1c120a75ec049, type: 3}
+  - {fileID: 2100000, guid: e2e2c50e336acb94e8799e59bedf5365, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -358,7 +358,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 860793eb3324391468f1c120a75ec049, type: 3}
+  - {fileID: 2100000, guid: e2e2c50e336acb94e8799e59bedf5365, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -665,7 +665,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 860793eb3324391468f1c120a75ec049, type: 3}
+  - {fileID: 2100000, guid: e2e2c50e336acb94e8799e59bedf5365, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -838,7 +838,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 860793eb3324391468f1c120a75ec049, type: 3}
+  - {fileID: 2100000, guid: e2e2c50e336acb94e8799e59bedf5365, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1493,6 +1493,7 @@ MonoBehaviour:
   goCanvas: {fileID: 4554472592896104012, guid: 3e4a57734d06639449f7793cb2620067, type: 3}
   goCanvasPlayerInfo: {fileID: 88861819526198512, guid: d3e56bd21449153459ca2918c79e4009, type: 3}
   goDirection: {fileID: 836581729614336918, guid: 4a84e4383ea7d0a478ce229c8dba43e0, type: 3}
+  traDirectionIcon: {fileID: 0}
 --- !u!114 &2392815011284517911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,6 +1533,7 @@ MonoBehaviour:
   - {fileID: 8180946785074615609}
   - {fileID: -1577071429672565446}
   - {fileID: 7166672659988722548}
+  - {fileID: -5178127830049865816}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1605,7 +1607,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 200
   goVFXHit: {fileID: 0}
+  shaderCissolve: {fileID: 0}
   imgHp: {fileID: 0}
+  textHp: {fileID: 0}
 --- !u!114 &-5178127830049865816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,7 +1995,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 860793eb3324391468f1c120a75ec049, type: 3}
+  - {fileID: 2100000, guid: e2e2c50e336acb94e8799e59bedf5365, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2290,7 +2294,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 860793eb3324391468f1c120a75ec049, type: 3}
+  - {fileID: 2100000, guid: e2e2c50e336acb94e8799e59bedf5365, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

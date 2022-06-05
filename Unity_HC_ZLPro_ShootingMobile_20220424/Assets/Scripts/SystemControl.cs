@@ -1,5 +1,7 @@
+using System;
 using Cinemachine;
 using Photon.Pun;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +26,7 @@ namespace remiel
         private Rigidbody rigidBody;
         private Animator animator;
         private Joystick joystick;
-        private Transform traDirectionIcon;
+        public Transform traDirectionIcon;
         private CinemachineVirtualCamera cvc;
         private SystemAttack systemAttack;
         private DamageManager damageManager;
@@ -43,7 +45,6 @@ namespace remiel
                 follow.traPlayer = transform;
 
                 traDirectionIcon = Instantiate(goDirection).transform; // 取得角色方向圖示
-                Instantiate(goCanvasPlayerInfo);
 
                 GameObject tempCavans = Instantiate(goCanvas);
                 joystick = tempCavans.transform.Find("Floating Joystick").GetComponent<Joystick>(); // 取得畫布內的虛擬搖桿             
@@ -52,8 +53,8 @@ namespace remiel
                 cvc = GameObject.Find("CM管理器").GetComponent<CinemachineVirtualCamera>();
                 cvc.Follow = transform;
 
-                damageManager.imgHp = GameObject.Find("圖片血量").GetComponent<Image>();
-                damageManager.textHp = GameObject.Find("文字血量").GetComponent<Text>();
+                damageManager.imgHp = GameObject.Find("血條圖片").GetComponent<Image>();
+                damageManager.textHp = GameObject.Find("文字血量").GetComponent<TextMeshProUGUI>();
             }
             else 
             {
@@ -96,6 +97,8 @@ namespace remiel
 
         private void LookDirectionIconPos()
         {
+            if (Mathf.Abs(joystick.Vertical) < 0.1f && Mathf.Abs(joystick.Horizontal) < 0.1f) return;
+
             // 取得面相角度資訊 = 四位元.面相角度(方向圖示 - 角色) - 方向圖示與角色的向量
             Quaternion look = Quaternion.LookRotation(traDirectionIcon.position - transform.position);
             // 角色的角度 = 四位元.插值(角色的角度.電像角度. 旋轉速度 * 一幀的時間)
