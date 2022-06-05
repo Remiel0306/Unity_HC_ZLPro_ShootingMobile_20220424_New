@@ -85,12 +85,11 @@ namespace remiel
 
             float valueDissolve = 5;                                     // 溶解數值起始值                   
 
-            for(int i = 0; i < 20; i++)                                  // 迴圈執行遞減
+            for(int i = 0; i < 30; i++)                                  // 迴圈執行遞減
             {
                 valueDissolve -= 0.3f;                                   // 溶解數值遞減0.3f
                 materialDissolve.SetFloat("dissvolve", valueDissolve);   // 更新著色氣數系，注意要控制
                 yield return new WaitForSeconds(0.08f);                  // 等待
-
             }
         }
     }

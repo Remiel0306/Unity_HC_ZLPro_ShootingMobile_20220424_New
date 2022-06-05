@@ -1507,7 +1507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnFire: {fileID: 0}
-  goBullet: {fileID: 2567211226457280992, guid: be7140dc7c38379478ae38555bc69599, type: 3}
+  goBullet: {fileID: 6293020650493611361, guid: 4f6e3894288db2344a83bccb762849b8, type: 3}
   bulletCountMax: 3
   traFire: {fileID: 2392815011283661623}
   speedFire: 500
@@ -1606,8 +1606,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
-  goVFXHit: {fileID: 0}
-  shaderCissolve: {fileID: 0}
+  goVFXHit: {fileID: 4956439255883972331, guid: 5e5ac131d71c7e145aff6f4c0427a5a1, type: 3}
+  shaderCissolve: {fileID: -6465566751694194690, guid: 46d7ccd5681b0f9448be737302860260, type: 3}
   imgHp: {fileID: 0}
   textHp: {fileID: 0}
 --- !u!114 &-5178127830049865816
