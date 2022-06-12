@@ -87,7 +87,7 @@ namespace remiel
 
             for(int i = 0; i < 30; i++)                                  // 迴圈執行遞減
             {
-                valueDissolve -= 0.3f;                                   // 溶解數值遞減0.3f
+                valueDissolve -= 0.8f;                                   // 溶解數值遞減0.3f
                 materialDissolve.SetFloat("dissolve", valueDissolve);   // 更新著色氣數系，注意要控制
                 yield return new WaitForSeconds(0.08f);                  // 等待
             }

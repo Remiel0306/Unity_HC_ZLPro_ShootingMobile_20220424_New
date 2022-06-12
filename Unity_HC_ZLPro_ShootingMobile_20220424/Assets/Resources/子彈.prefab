@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDestroy: 5
-  collisionDestroy: 0
+  collisionDestroy: 1
 --- !u!114 &3665662722988100748
 MonoBehaviour:
   m_ObjectHideFlags: 0

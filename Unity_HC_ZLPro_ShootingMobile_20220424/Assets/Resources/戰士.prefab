@@ -1393,7 +1393,6 @@ GameObject:
   - component: {fileID: -1577071429672565446}
   - component: {fileID: 7166672659988722548}
   - component: {fileID: -288378848084378816}
-  - component: {fileID: -5178127830049865816}
   m_Layer: 0
   m_Name: "\u6230\u58EB"
   m_TagString: Untagged
@@ -1488,7 +1487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   rangeOirectionIcon: 3
-  speedTurn: 4
+  speedTurn: 20
   parameterWalk: "\u8DD1\u6B65\u958B\u95DC"
   goCanvas: {fileID: 4554472592896104012, guid: 3e4a57734d06639449f7793cb2620067, type: 3}
   goCanvasPlayerInfo: {fileID: 88861819526198512, guid: d3e56bd21449153459ca2918c79e4009, type: 3}
@@ -1510,7 +1509,7 @@ MonoBehaviour:
   goBullet: {fileID: 6293020650493611361, guid: 4f6e3894288db2344a83bccb762849b8, type: 3}
   bulletCountMax: 3
   traFire: {fileID: 2392815011283661623}
-  speedFire: 500
+  speedFire: 700
 --- !u!114 &6355035845116580035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,7 +1532,6 @@ MonoBehaviour:
   - {fileID: 8180946785074615609}
   - {fileID: -1577071429672565446}
   - {fileID: 7166672659988722548}
-  - {fileID: -5178127830049865816}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1610,22 +1608,6 @@ MonoBehaviour:
   shaderCissolve: {fileID: -6465566751694194690, guid: 46d7ccd5681b0f9448be737302860260, type: 3}
   imgHp: {fileID: 0}
   textHp: {fileID: 0}
---- !u!114 &-5178127830049865816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2392815011622268120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &2392815011622268122
 GameObject:
   m_ObjectHideFlags: 0
