@@ -37,7 +37,7 @@ namespace remiel
             // 取得子物件"們"的原件
             smr = GetComponentsInChildren<SkinnedMeshRenderer>();
             // 新增 溶解著色氣 材質球
-            Material materialDissolve = new Material(shaderCissolve);
+            materialDissolve = new Material(shaderCissolve);
             // 利用迴圈賦予所有仔物件 溶解材質球
             for(int i =0; i < 0; i++)
             {
@@ -67,7 +67,7 @@ namespace remiel
             PhotonNetwork.Instantiate(goVFXHit.name, posHit, Quaternion.identity);
             // 如果 血量<=0 就透過RPC 同步所有人得物件進行死亡方法
             if (hp <= 0) photonView.RPC("Dead", RpcTarget.All);
-
+                       
         }
 
         // 需要同步的方法必須添加PunRPC 屬性 Remote Procedure Call 遠端程式呼叫
@@ -88,8 +88,19 @@ namespace remiel
             for(int i = 0; i < 30; i++)                                  // 迴圈執行遞減
             {
                 valueDissolve -= 0.3f;                                   // 溶解數值遞減0.3f
-                materialDissolve.SetFloat("dissvolve", valueDissolve);   // 更新著色氣數系，注意要控制
+                materialDissolve.SetFloat("dissolve", valueDissolve);   // 更新著色氣數系，注意要控制
                 yield return new WaitForSeconds(0.08f);                  // 等待
+            }
+
+            ReturnToLobby();
+        }
+
+        private void ReturnToLobby()
+        {
+            if (photonView.IsMine)
+            {
+                PhotonNetwork.LeaveRoom();              // 離開房間
+                PhotonNetwork.LoadLevel("遊戲大廳");     // 回到大廳場景
             }
         }
     }

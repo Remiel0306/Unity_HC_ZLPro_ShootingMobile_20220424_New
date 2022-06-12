@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;   // 引用 系統及和一般(資料結構, List, ArrayList...)
 using System.Linq;  // 引用 系統諮詢語言(資料轉換 API)
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
 namespace remiel
@@ -11,7 +12,7 @@ namespace remiel
     /// 判斷如果是連線進入得玩家
     /// 就生成角色物件(戰士)
     /// </summary>
-    public class GameManager : MonoBehaviourPun
+    public class GameManager : MonoBehaviourPunCallbacks
     {
         [SerializeField, Header("角色物件")] private GameObject goCharacter;
         [SerializeField, Header("玩家生成物件")] private Transform[] traSpawmPoint;
@@ -21,6 +22,11 @@ namespace remiel
 
         private void Awake()
 		{
+            // 玩家已加入房間
+
+            PhotonNetwork.CurrentRoom.IsVisible = false;    // Photon 連線.當前房間.可看性 = 否(其他玩家不可看到、加入此房間)
+
+
             traSpawmPointList = new List<Transform>();  // 新增 清單物件
             traSpawmPointList = traSpawmPoint.ToList(); // 鄭烈轉為清單資料結構
             
@@ -36,5 +42,20 @@ namespace remiel
                 traSpawmPointList.RemoveAt(indexRandom);   // 刪除已經取得過的生成座標資料
             //}
 		}
-	}
+
+        public override void OnPlayerLeftRoom(Player otherPlayer)
+        {
+            base.OnPlayerLeftRoom(otherPlayer);
+
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+            {
+                Win();
+            }
+        }
+        
+        private void Win()
+        {
+            print("勝利");
+        }
+    }
 }

@@ -12,7 +12,7 @@ namespace remiel
 
         private void Awake()
         {
-            Invoke("DestoryDelay", timeDestroy);
+            Invoke("DestroyDelay", timeDestroy);
         }
 
         /// <summary>
